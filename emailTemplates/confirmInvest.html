@@ -1,0 +1,7 @@
+{% extends 'base.html' %} {% block content %}
+<p>Thank you for investing!</p>
+{% for trans in transactions %}
+<div>{{trans.amount}} => {{trans.tokens}}
+
+</div>
+<br> {% endfor %} {% endblock %}
