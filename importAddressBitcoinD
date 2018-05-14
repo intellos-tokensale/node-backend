@@ -1,0 +1,1 @@
+bitcoin-cli importaddress '1LuckyY9fRzcJre7aou7ZhWVXktxjjBb9S' --host=127.0.0.1 --port=8332 --rpcuser=bitcoinrpc --rpcpassword=nt4XxaUXuQ7mFUmsX0uVCLmBqHhyqOqrGqiU+Ss2yIIl 

@@ -18,6 +18,7 @@
         "babel-preset-es2017": "^6.24.1",
         "bigdecimal": "^0.6.1",
         "bitcoin-address": "^0.3.0",
+        "bitcoind-rpc": "^0.7.1",
         "blockchain": "^1.0.6",
         "blockchain.info": "^2.11.0",
         "body-parser": "^1.13.3",
