@@ -9,7 +9,7 @@ export default {
 
 function getTokenAmount(req, res) {
     if (!req.userId) throw 'unauthorized';
-    account.getFlat(req.userId)
+    return account.getFlat(req.userId)
         .then((account) => {
             return transaction.getTokens(account.id);
         })
@@ -20,7 +20,7 @@ function getTokenAmount(req, res) {
 
 function get(req, res) {
     if (!req.userId) throw 'unauthorized';
-    account.getFlat(req.userId)
+    return account.getFlat(req.userId)
         .then((account) => {
             return transaction.getByAccount(account.id);
         })

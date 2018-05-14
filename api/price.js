@@ -14,6 +14,7 @@ function getLast(req, res) {
 
 
 function getByTime(req, res) {
+    if (!req.params.time) throw 'time not defined';
     return price.getByTime(req.params.time)
         .then((price) => {
             return res.json(price);

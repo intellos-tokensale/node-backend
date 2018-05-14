@@ -8,5 +8,5 @@ function confirmInvestment(req, res) {
     if (!req.params.userId) throw 'user not defined';
     if (!req.params.hash) throw 'tranasaction not defined';
     res.json({});
-    email.sendInvestConfirmation(req.params.userId, req.params.hash);
+    return email.sendInvestConfirmation(req.params.userId, req.params.hash);
 }

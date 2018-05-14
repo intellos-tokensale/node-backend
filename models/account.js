@@ -7,26 +7,32 @@ module.exports = (sequelize, DataTypes) => {
         },
         email: {
             type: DataTypes.STRING,
+            allowNull: true,
             unique: true
         },
         ethAddress: {
             type: DataTypes.STRING,
+            allowNull: true,
             unique: true
         },
         btcAddress: {
             type: DataTypes.STRING,
+            allowNull: true,
             unique: true
         },
         erc20Address: {
             type: DataTypes.STRING,
+            allowNull: true,
             unique: true
         },
         btcRefundAddress: {
             type: DataTypes.STRING,
+            allowNull: true,
             unique: true
         },
         ethRefundAddress: {
             type: DataTypes.STRING,
+            allowNull: true,
             unique: true
         },
         kyc: {
