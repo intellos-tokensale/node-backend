@@ -13,6 +13,7 @@ describe('Account API', () => {
     beforeEach(() => {
         req = {
             userId: 'hello1',
+            userEmail: 'hallo@hallo_nomail.com',
             body: {
                 erc20Address: '0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a',
                 ethRefundAddress: '0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a',
@@ -37,6 +38,14 @@ describe('Account API', () => {
                 delete req.userId;
                 expect(() => { account.get(req, res); })
                     .to.throw('unauthorized');
+            });
+        });
+
+        describe('no email', () => {
+            it('throws an error', () => {
+                delete req.userEmail;
+                expect(() => { account.get(req, res); })
+                    .to.throw('email on user missing');
             });
         });
     });

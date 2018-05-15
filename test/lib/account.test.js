@@ -13,7 +13,7 @@ describe('Account', () => {
         let acc;
         before(() => {
             return new Promise((resolve) => {
-                account.get('hello1')
+                account.get('hello1', 'hauri.32@gmail.com')
                     .then(x => {
                         acc = x;
                         resolve();
@@ -49,7 +49,7 @@ describe('Account', () => {
         let acc;
         before(() => {
             return new Promise((resolve) => {
-                account.getFlat('hello1')
+                account.getFlat('hello1', 'hauri.32@gmail.com')
                     .then(x => {
                         acc = x;
                         resolve();
@@ -85,14 +85,13 @@ describe('Account', () => {
         it('making new entry', () => {
             let tmp = {
                 ethAddress: '0xddbd2b932c763ba5b1b7ae3b362eac3e8d40121a',
-                btcAddress: '1HB5XMLmzFVj8ALj6mfBsbifRoD4miY36v',
-                email: 'hello@adsf.ch' + Math.random()
+                btcAddress: '1HB5XMLmzFVj8ALj6mfBsbifRoD4miY36v'
             };
             let id;
             models.Accounts.create(tmp)
                 .then((o) => {
                     id = o.dataValues.id;
-                    return account.getFlat('user' + Math.random());
+                    return account.getFlat('user' + Math.random(), 'email@email' + Math.random());
                 }).then(x => {
                     console.log(x);
                     expect(id).to.be.equals(x.id);
