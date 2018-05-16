@@ -11,7 +11,7 @@ export default {
 
 function get(req, res) {
     if (!req.userId) throw 'unauthorized';
-    if (!req.userEmail) throw 'No email found';
+    if (!req.userEmail) throw 'email on user missing';
 
     return account.get(req.userId, req.userEmail)
         .then((account) => {

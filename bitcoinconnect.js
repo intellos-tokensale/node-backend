@@ -1,3 +1,5 @@
+
+
 var RpcClient = require('bitcoind-rpc');
 
 var config = {
@@ -10,7 +12,13 @@ var config = {
 
 var rpc = new RpcClient(config);
 
-var txids = [];
+
+
+
+
+
+
+
 
 // rpc.importAddress('1LuckyY9fRzcJre7aou7ZhWVXktxjjBb9S', 'o', true, function(err, ret) {
 //     console.log('imported?', err, ret);
@@ -31,6 +39,7 @@ var txids = [];
 //     // });
 //     // console.log(o.result.transactions[0]);
 // })
+/*
 rpc.getaccount('1LuckyY9fRzcJre7aou7ZhWVXktxjjBb9S', (e, o) => {
     console.log(e);
     console.log(o);
@@ -46,6 +55,7 @@ rpc.listtransactions('', 100, 0, true, (e, o) => {
         }
     });
 });
+*/
 
 /*
 function showNewTransactions() {
