@@ -1,11 +1,11 @@
 let chai = require('chai');
 
-
 chai.should();
 var expect = require('chai').expect;
 
 
 import transaction from '../../lib/transaction';
+import bigMath from '../../lib/util/bigMath';
 
 describe('Transaction', () => {
 
@@ -59,74 +59,44 @@ describe('Transaction', () => {
 
     });
 
-    describe('updateForBTCAddress', () => {
+    describe('saveAllTransactionsBTC', () => {
+        var transactions = [{
+            value: bigMath.newD(1),
+            address: '1NxaBCFQwejSZbQfWcYNwgqML5wWoE3rK4',
+            hash: '2b4148ce75e62f3358e33e594013cd4d420cac70b8dcc4bd50516a580a6d58df',
+            confirmations: 2,
+            time: 1526564947000,
+            accountId: 149
+        }];
 
-
-        it('returns', () => {
-            return transaction.updateForBTCAddress('1LuckyY9fRzcJre7aou7ZhWVXktxjjBb9S', 1).then(() => {
-                expect(2).to.equal(2);
-            });
+        it('can save', () => {
+            expect(() => { transaction.saveAllTransactionsBTC(transactions); })
+                .to.not.throw();
         });
-
-
-        describe('no accountId', () => {
-            it('throws an error', () => {
-                expect(() => { transaction.updateForBTCAddress('1LuckyY9fRzcJre7aou7ZhWVXktxjjBb9S', null); })
-                    .to.throw('Transaction: accountId not defined');
-            });
-        });
-
-        describe('no address', () => {
-            it('throws an error', () => {
-                expect(() => { transaction.updateForBTCAddress(null, 1); })
-                    .to.throw('Transaction: address not defined');
-            });
-        });
-
-        describe('no btc address', () => {
-            it('throws an error', () => {
-                expect(() => { transaction.updateForBTCAddress('1LuckyY9fRzcJre7aou7ZhWVXktxjjBb9', 1); })
-                    .to.throw('Transaction: Not a valid BTC address');
-            });
-        });
-
-
 
     });
 
-    describe('updateForETHAddress', () => {
 
+    describe('saveAllTransactionsETH', () => {
+        var transactions = [{
+            value: bigMath.newD(1),
+            address: '1NxaBCFQwejSZbQfWcYNwgqML5wWoE3rK4',
+            hash: '2b4148ce75e62f3358e33e594013cd4d420cac70b8dcc4bd50516a580a6d58df',
+            confirmations: 2,
+            time: 1526564947000,
+            accountId: 149
+        }];
 
-        it('returns', () => {
-            return transaction.updateForETHAddress('0x876EabF441B2EE5B5b0554Fd502a8E0600950cFa', 1).then(() => {
-                expect(2).to.equal(2);
-            });
+        it('can save', () => {
+            expect(() => { transaction.saveAllTransactionsETH(transactions); })
+                .to.not.throw();
         });
-
-        describe('no accountId', () => {
-            it('throws an error', () => {
-                expect(() => { transaction.updateForETHAddress('0x876EabF441B2EE5B5b0554Fd502a8E0600950cFa', null); })
-                    .to.throw('Transaction: accountId not defined');
-            });
-        });
-
-        describe('no address', () => {
-            it('throws an error', () => {
-                expect(() => { transaction.updateForETHAddress(null, 1); })
-                    .to.throw('Transaction: address not defined');
-            });
-        });
-
-        describe('no ETH address', () => {
-            it('throws an error', () => {
-                expect(() => { transaction.updateForETHAddress('inv0x876EabF441B2EE5B5b0554Fd502a8E0600950cFa', 1); })
-                    .to.throw('Transaction: Not a valid ETH address');
-            });
-        });
-
-
-
     });
+
+
+
+
+
 
     describe('calcTransactionDataAndSave', () => {
 

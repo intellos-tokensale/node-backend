@@ -23,21 +23,6 @@ import events from '../../lib/events/events';
 
 describe('Events', () => {
 
-    describe('processAccountFetched', () => {
-
-        it('does not Throw an error', () => {
-            expect(() => { events.processAccountFetched(account); })
-                .to.not.throw();
-        });
-
-        describe('no account set', () => {
-            it('throws an error', () => {
-                expect(() => { events.processAccountFetched(); })
-                    .to.throw('Account:account undefined');
-            });
-        });
-    });
-
     describe('processInvestment', () => {
 
         it('does not Throw an error', () => {

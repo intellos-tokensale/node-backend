@@ -93,7 +93,6 @@ describe('Account', () => {
                     id = o.dataValues.id;
                     return account.getFlat('user' + Math.random(), 'email@email' + Math.random());
                 }).then(x => {
-                    console.log(x);
                     expect(id).to.be.equals(x.id);
                     models.Accounts.destroy({
                         where: {
@@ -140,22 +139,53 @@ describe('Account', () => {
         });
     });
 
-    describe('getAssociatedAccounts', () => {
-        let accs;
+    describe('reloadAccounts', () => {
+        let acc;
         before(() => {
             return new Promise((resolve) => {
-                account.getAssociatedAccounts(1)
-                    .then(x => {
-                        accs = x;
+                account.reloadAccounts()
+                    .then(() => {
                         resolve();
                     });
             });
         });
+        describe('loadedAddressToAccountId', () => {
+            it('eth address exists', () => {
+                var id = account.loadedAddressToAccountId("0x70faa28A6B8d6829a4b1E649d26eC9a2a39ba413");
+                id.should.equal(1);
+            });
 
-        it('getAssociatedAccounts', () => {
-            expect(accs).to.be.an('array');
+            it('btc address exists', () => {
+                var id = account.loadedAddressToAccountId("1dice7W2AicHosf5EL3GFDUVga7TgtPFn");
+                id.should.equal(1);
+            });
+
+            it('address des not exist', () => {
+                var id = account.loadedAddressToAccountId("asdf");
+                expect(id).to.be.null;
+            });
+
+            it('address des not exist', () => {
+                var id = account.loadedAddressToAccountId("asdf");
+                expect(id).to.be.null;
+            });
         });
+        describe('getAssociatedAccountsETH', () => {
+            it('eth address exists', () => {
+                var accs = account.getAssociatedAccountsETH();
+                accs.should.be.an('array');
+            });
+        });
+
+        describe('getAssociatedAccountsBTC', () => {
+            it('eth address exists', () => {
+                var accs = account.getAssociatedAccountsBTC();
+                accs.should.be.an('array');
+            });
+        });
+
     });
+
 
     describe('saveErc20', () => {
         describe('correct address', () => {

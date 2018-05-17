@@ -4,6 +4,7 @@ import account from './account';
 import transactions from './transaction';
 import prices from './price';
 import email from './email';
+import admin from './admin';
 
 import auth from '../middleware/auth';
 import sysAuth from '../middleware/sysAuth';
@@ -31,7 +32,13 @@ export default () => {
     api.get('/prices', prices.getLast);
     api.get('/prices/:time', prices.getByTime);
 
-    api.get('/email/confirmInvestment/:userId/:hash', sysAuth, email.confirmInvestment);
+    if (process.env.EMAIL) {
+        api.get('/email/confirmInvestment/:userId/:hash', sysAuth, email.confirmInvestment);
+    }
+
+    if (process.env.ADMIN) {
+        api.get('/admin/fetchTransactions/:time', sysAuth, admin.fetchTransactions);
+    }
 
     return api;
 }

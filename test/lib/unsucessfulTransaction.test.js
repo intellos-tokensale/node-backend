@@ -30,34 +30,6 @@ describe('UnsucessfulTransaction', () => {
             });
         });
 
-        describe('no address', () => {
-            it('has not been saved', () => {
-                expect(() => { unsucessfulTransaction.save(undefined, 'BTC', '{}', 'error'); })
-                    .to.throw('UnsucessfulTransaction: address not defined');
-            });
-        });
-
-        describe('no currecy', () => {
-            it('has not been saved', () => {
-                expect(() => { unsucessfulTransaction.save('btcAddress', null, '{}', 'error'); })
-                    .to.throw('UnsucessfulTransaction: currency not defined');
-            });
-        });
-
-        describe('no transactionJson', () => {
-            it('has not been saved', () => {
-                expect(() => { unsucessfulTransaction.save('btcAddress', 'BTC', null, 'error'); })
-                    .to.throw('UnsucessfulTransaction: transactionJson not defined');
-            });
-        });
-
-        describe('no error', () => {
-            it('has not been saved', () => {
-                expect(() => { unsucessfulTransaction.save('btcAddress', 'BTC', '{}', null); })
-                    .to.throw('UnsucessfulTransaction: error not defined');
-            });
-        });
-
 
     });
 

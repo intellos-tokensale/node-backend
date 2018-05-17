@@ -1,1 +1,20 @@
-require('./../index')
+require('babel-register');
+console.log('starting Possible Modes: API,PRICES,CRAWLER,EMAIL,ADMIN');
+if (process.env.API==='true') {
+    console.log('API Mode engaged');
+    require('./../index');
+}
+if (process.env.PRICES==='true') {
+    console.log('PRICES Mode engaged');
+    require('../scheduler');
+}
+if (process.env.CRAWLER==='true') {
+    console.log('CRAWLER Mode engaged');
+    require('../blockchainCrawler');
+}
+if (process.env.EMAIL==='true') {
+    console.log('EMAIL Mode engaged');
+}
+if (process.env.ADMIN==='true') {
+    console.log('ADMIN Mode engaged');
+}
