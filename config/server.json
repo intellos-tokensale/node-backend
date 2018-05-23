@@ -1,0 +1,17 @@
+{
+    "development": {
+        "port": 3000,
+        "bodyLimit": "100kb",
+        "corsHeaders": ["Link"]
+    },
+    "test": {
+        "port": 3000,
+        "bodyLimit": "100kb",
+        "corsHeaders": ["Link"]
+    },
+    "production": {
+        "port": 3000,
+        "bodyLimit": "100kb",
+        "corsHeaders": ["Link"]
+    }
+}

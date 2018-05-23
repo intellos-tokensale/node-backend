@@ -4,7 +4,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import api from './api';
-import config from './config.json';
+import config from './config';
 import db from './models';
 import auth from './middleware/auth';
 
@@ -18,11 +18,11 @@ app.use(morgan('dev'));
 
 // 3rd party middleware
 app.use(cors({
-    exposedHeaders: config.corsHeaders
+    exposedHeaders: config.server.corsHeaders
 }));
 
 app.use(bodyParser.json({
-    limit: config.bodyLimit
+    limit: config.server.bodyLimit
 }));
 
 app.use(auth);
@@ -30,7 +30,7 @@ app.use(auth);
 // api router
 app.use('/api', api());
 
-app.server.listen(process.env.PORT || config.port, () => {
+app.server.listen(config.server.port, () => {
     console.log(`Started on port ${app.server.address().port}`);
 });
 

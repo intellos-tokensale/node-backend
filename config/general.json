@@ -1,0 +1,17 @@
+{
+    "development": {
+        "etherscanKey": "CIVXDMVSH6KIKN3YCWQX6TJMK7U9Y8HDJU",
+        "maxPriceDiffFraction": 0.7,
+        "dollarPrice": 10
+    },
+    "test": {
+        "etherscanKey": "CIVXDMVSH6KIKN3YCWQX6TJMK7U9Y8HDJU",
+        "maxPriceDiffFraction": 0.7,
+        "dollarPrice": 10
+    },
+    "production": {
+        "etherscanKey": "CIVXDMVSH6KIKN3YCWQX6TJMK7U9Y8HDJU",
+        "maxPriceDiffFraction": 0.7,
+        "dollarPrice": 10
+    }
+}

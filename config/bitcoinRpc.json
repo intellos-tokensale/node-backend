@@ -1,7 +1,23 @@
 {
-    "protocol": "http",
-    "user": "bitcoinrpc",
-    "pass": "nt4XxaUXuQ7mFUmsX0uVCLmBqHhyqOqrGqiU+Ss2yIIl",
-    "host": "127.0.0.1",
-    "port": "8332"
+    "development": {
+        "protocol": "http",
+        "user": "bitcoinrpc",
+        "pass": "nt4XxaUXuQ7mFUmsX0uVCLmBqHhyqOqrGqiU+Ss2yIIl",
+        "host": "127.0.0.1",
+        "port": "8332"
+    },
+    "test": {
+        "protocol": "http",
+        "user": "bitcoinrpc",
+        "pass": "nt4XxaUXuQ7mFUmsX0uVCLmBqHhyqOqrGqiU+Ss2yIIl",
+        "host": "127.0.0.1",
+        "port": "8332"
+    },
+    "production": {
+        "protocol": "http",
+        "user": "bitcoinrpc",
+        "pass": "nt4XxaUXuQ7mFUmsX0uVCLmBqHhyqOqrGqiU+Ss2yIIl",
+        "host": "127.0.0.1",
+        "port": "8332"
+    }
 }
