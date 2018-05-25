@@ -1,9 +1,9 @@
-let chai = require('chai');
+const chai = require('chai');
 
 
 chai.should();
-var expect = require('chai').expect;
-var account = {
+const expect = require('chai').expect;
+let account = {
     "id": 1,
     "userId": "hello1",
     "email": "hauri.32@gmail.com",

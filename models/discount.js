@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    var Discounts = sequelize.define('Discounts', {
+    let Discounts = sequelize.define('Discounts', {
         discount: {
             type: DataTypes.DECIMAL(4, 2)
         },
@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE
         }
     }, {});
-    Discounts.associate = function(models) {
+    Discounts.associate = (models) => {
         // associations can be defined here
     };
     return Discounts;

@@ -10,7 +10,7 @@ import auth from './middleware/auth';
 
 
 
-let app = express();
+const app = express();
 app.server = http.createServer(app);
 
 // logger

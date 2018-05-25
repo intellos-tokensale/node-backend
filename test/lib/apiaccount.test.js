@@ -1,8 +1,8 @@
-let chai = require('chai');
+const chai = require('chai');
 
 
 chai.should();
-var expect = require('chai').expect;
+const expect = require('chai').expect;
 
 
 import account from '../../api/account';
@@ -21,7 +21,7 @@ describe('Account API', () => {
             }
         }
         res = {
-            json: function(x) {}
+            json: (x) => {}
         }
     });
 

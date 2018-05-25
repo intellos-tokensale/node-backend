@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    var Accounts = sequelize.define('Accounts', {
+    let Accounts = sequelize.define('Accounts', {
         userId: {
             type: DataTypes.STRING,
             unique: true
@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.BOOLEAN,
         }
     }, {});
-    Accounts.associate = function(models) {
+    Accounts.associate = (models) => {
         // associations can be defined here
     };
     return Accounts;

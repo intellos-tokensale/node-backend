@@ -1,8 +1,8 @@
-let chai = require('chai');
+const chai = require('chai');
 
 
 chai.should();
-var expect = require('chai').expect;
+const expect = require('chai').expect;
 
 
 import account from '../../lib/account';
@@ -151,35 +151,35 @@ describe('Account', () => {
         });
         describe('loadedAddressToAccountId', () => {
             it('eth address exists', () => {
-                var id = account.loadedAddressToAccountId("0x70faa28A6B8d6829a4b1E649d26eC9a2a39ba413");
+                let id = account.loadedAddressToAccountId("0x70faa28A6B8d6829a4b1E649d26eC9a2a39ba413");
                 id.should.equal(1);
             });
 
             it('btc address exists', () => {
-                var id = account.loadedAddressToAccountId("1dice7W2AicHosf5EL3GFDUVga7TgtPFn");
+                let id = account.loadedAddressToAccountId("1dice7W2AicHosf5EL3GFDUVga7TgtPFn");
                 id.should.equal(1);
             });
 
             it('address des not exist', () => {
-                var id = account.loadedAddressToAccountId("asdf");
+                let id = account.loadedAddressToAccountId("asdf");
                 expect(id).to.be.null;
             });
 
             it('address des not exist', () => {
-                var id = account.loadedAddressToAccountId("asdf");
+                let id = account.loadedAddressToAccountId("asdf");
                 expect(id).to.be.null;
             });
         });
         describe('getAssociatedAccountsETH', () => {
             it('eth address exists', () => {
-                var accs = account.getAssociatedAccountsETH();
+                let accs = account.getAssociatedAccountsETH();
                 accs.should.be.an('array');
             });
         });
 
         describe('getAssociatedAccountsBTC', () => {
             it('eth address exists', () => {
-                var accs = account.getAssociatedAccountsBTC();
+                let accs = account.getAssociatedAccountsBTC();
                 accs.should.be.an('array');
             });
         });

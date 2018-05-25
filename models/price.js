@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    var Prices = sequelize.define('Prices', {
+    let Prices = sequelize.define('Prices', {
         btcDollarPrice: {
             type: DataTypes.DECIMAL(40, 20)
         },
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE
         }
     }, {});
-    Prices.associate = function(models) {
+    Prices.associate = (models) => {
         // associations can be defined here
     };
     return Prices;

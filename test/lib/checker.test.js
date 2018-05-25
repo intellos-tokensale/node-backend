@@ -1,9 +1,9 @@
 import _m from '../../lib/util/bigMath';
-let chai = require('chai');
+const chai = require('chai');
 
 
 chai.should();
-var expect = require('chai').expect;
+const expect = require('chai').expect;
 
 
 import checker from '../../lib/util/checker';
@@ -181,19 +181,19 @@ describe('Checker', () => {
         });
 
         it('price returned', () => {
-            var o = checker.priceRowPlausabilityCheck(prices, av);
+            let o = checker.priceRowPlausabilityCheck(prices, av);
             expect(o.btcDollarPrice).to.be.equal(1);
         });
 
         it('price is row btc negative', () => {
             av.btcDollarPrice = -1;
-            var o = checker.priceRowPlausabilityCheck(prices, av);
+            let o = checker.priceRowPlausabilityCheck(prices, av);
             expect(o.btcDollarPrice).to.be.equal(1);
         });
 
         it('price is row eth negative', () => {
             av.ethDollarPrice = -1;
-            var o = checker.priceRowPlausabilityCheck(prices, av);
+            let o = checker.priceRowPlausabilityCheck(prices, av);
             expect(o.btcDollarPrice).to.be.equal(1);
         });
 

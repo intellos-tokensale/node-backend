@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    var Transactions = sequelize.define('Transactions', {
+    let Transactions = sequelize.define('Transactions', {
         blockchainTxId: {
             type: DataTypes.STRING
         },
@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER
         },
     }, {});
-    Transactions.associate = function(models) {
+    Transactions.associate = (models) => {
         Transactions.belongsTo(models.Accounts, { foreignKey: 'accountId', as: 'transactions' });
     };
     return Transactions;

@@ -1,11 +1,11 @@
-let chai = require('chai');
+const chai = require('chai');
 
 
 chai.should();
-var expect = require('chai').expect;
+const expect = require('chai').expect;
 
 
-import unsucessfulTransaction from '../../lib/unsucessfulTransaction';
+const unsucessfulTransaction = require('../../lib/unsucessfulTransaction');
 
 describe('UnsucessfulTransaction', () => {
 

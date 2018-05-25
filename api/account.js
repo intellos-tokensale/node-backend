@@ -1,6 +1,6 @@
 import account from '../lib/account';
-var ethereum_address = require('ethereum-address');
-var bitcoin_address = require('bitcoin-address');
+const ethereum_address = require('ethereum-address');
+const bitcoin_address = require('bitcoin-address');
 
 export default {
     get,

@@ -1,7 +1,7 @@
-let chai = require('chai');
+const chai = require('chai');
 
 chai.should();
-var expect = require('chai').expect;
+const expect = require('chai').expect;
 
 
 import transaction from '../../lib/transaction';
@@ -60,7 +60,7 @@ describe('Transaction', () => {
     });
 
     describe('saveAllTransactionsBTC', () => {
-        var transactions = [{
+        let transactions = [{
             value: bigMath.newD(1),
             address: '1NxaBCFQwejSZbQfWcYNwgqML5wWoE3rK4',
             hash: '2b4148ce75e62f3358e33e594013cd4d420cac70b8dcc4bd50516a580a6d58df',
@@ -78,7 +78,7 @@ describe('Transaction', () => {
 
 
     describe('saveAllTransactionsETH', () => {
-        var transactions = [{
+        let transactions = [{
             value: bigMath.newD(1),
             address: '1NxaBCFQwejSZbQfWcYNwgqML5wWoE3rK4',
             hash: '2b4148ce75e62f3358e33e594013cd4d420cac70b8dcc4bd50516a580a6d58df',
@@ -104,14 +104,14 @@ describe('Transaction', () => {
         let currencyPrice = '684.940750000000000000000000';
         let accountId = 1;
 
-        var prices = {
+        let prices = {
             btcDollarPrice: -1,
             ethDollarPrice: -1,
             dollarPrice: -1,
             discount: '0.00',
             discountUntil: 1526185994000
         };
-        var trans = {
+        let trans = {
             value: 1,
             confirmations: 22,
             hash: 'ee918efddbd54f17e029ff1bf58ec32d147d59f1f88d4cdcb32c0024c8a7ed4c',

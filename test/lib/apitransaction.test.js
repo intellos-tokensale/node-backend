@@ -1,8 +1,8 @@
-let chai = require('chai');
+const chai = require('chai');
 
 
 chai.should();
-var expect = require('chai').expect;
+const expect = require('chai').expect;
 
 
 import transaction from '../../api/transaction';
@@ -22,7 +22,7 @@ describe('Transaction API', () => {
             }
         }
         res = {
-            json: function(x) {}
+            json: (x) => {}
         }
     });
 

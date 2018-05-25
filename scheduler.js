@@ -6,7 +6,6 @@ import price from './lib/price';
 
 price.priceNowByExchange();
 
-
-var j = schedule.scheduleJob('*/15 */1 * * * *', function() {
+schedule.scheduleJob('*/15 */1 * * * *', () => {
     price.priceNowByExchange();
 });

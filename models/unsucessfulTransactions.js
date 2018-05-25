@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    var UnsucessfulTransactions = sequelize.define('UnsucessfulTransactions', {
+    let UnsucessfulTransactions = sequelize.define('UnsucessfulTransactions', {
         address: {
             type: DataTypes.STRING
         },

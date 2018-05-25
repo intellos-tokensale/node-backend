@@ -1,8 +1,8 @@
-let chai = require('chai');
+const chai = require('chai');
 
 
 chai.should();
-var expect = require('chai').expect;
+const expect = require('chai').expect;
 
 
 import admin from '../../api/admin';
@@ -20,7 +20,7 @@ describe('Email API', () => {
             }
         }
         res = {
-            json: function(x) {}
+            json: (x) => {}
         }
     });
 

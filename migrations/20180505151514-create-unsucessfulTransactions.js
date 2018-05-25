@@ -1,5 +1,5 @@
 'use strict';
-var Sequelize = require('sequelize');
+let Sequelize = require('sequelize');
 
 
 module.exports = {

@@ -4,7 +4,7 @@ import schedule from 'node-schedule';
 
 
 
-var j = schedule.scheduleJob('0 */1 * * * *', function() {
+schedule.scheduleJob('0 */1 * * * *', () => {
     account.reloadAccounts().then(() => {
             return crawler.crawlBTC(Math.floor(Date.now() / 1000) - 4 * 60 * 60);
         })
@@ -13,6 +13,6 @@ var j = schedule.scheduleJob('0 */1 * * * *', function() {
         });
 });
 
-var j = schedule.scheduleJob('*/19 * * * * *', function() {
+schedule.scheduleJob('*/19 * * * * *', () => {
     crawler.crawlUnconfirmedtransactions();
 });
