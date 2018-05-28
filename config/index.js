@@ -4,11 +4,13 @@ import emailer from './emailer.json';
 import general from './general.json';
 import server from './server.json';
 
+
 let config;
 
 const env = process.env.NODE_ENV || 'development';
 
 config = {
+    env: env,
     bitcoinRpc: bitcoinRpc[env],
     database: database[env],
     emailer: emailer[env],

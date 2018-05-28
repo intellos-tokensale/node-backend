@@ -7,7 +7,7 @@ export default {
 };
 
 function fetchTransactions(req, res) {
-    if (!req.params.time) throw 'time missing';
+    if (!req.params.time) throw new Error('time missing');
 
     account.reloadAccounts().then(() => {
             return crawler.crawlBTC(req.params.time);

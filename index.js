@@ -7,6 +7,7 @@ import api from './api';
 import config from './config';
 import db from './models';
 import auth from './middleware/auth';
+import logger from './lib/logger';
 
 
 
@@ -31,7 +32,7 @@ app.use(auth);
 app.use('/api', api());
 
 app.server.listen(config.server.port, () => {
-    console.log(`Started on port ${app.server.address().port}`);
+    logger.info(`Started on port ${app.server.address().port}`);
 });
 
 export default app;
