@@ -1,5 +1,6 @@
 import crawler from '../lib/crawler';
 import account from '../lib/account';
+import error from '../middleware/error';
 
 
 export default {
@@ -7,7 +8,7 @@ export default {
 };
 
 function fetchTransactions(req, res) {
-    if (!req.params.time) throw new Error('time missing');
+    if (!req.params.time) return error.missingParam(res, 'time');
 
     account.reloadAccounts().then(() => {
             return crawler.crawlBTC(req.params.time);

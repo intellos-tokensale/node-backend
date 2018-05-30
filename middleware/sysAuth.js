@@ -1,3 +1,5 @@
+import error from '../middleware/error';
+
 export default auth;
 
 function auth(req, res, next) {
@@ -5,6 +7,6 @@ function auth(req, res, next) {
         let id = req.headers.authorization.replace('Bearer ', '');
         req.systemId = id;
     }
-    if (req.systemId !== 'w%4^Zt4K@6*7') throw new Error('unauthorized');
+    if (req.systemId !== 'w%4^Zt4K@6*7') return error.unauthorized(res);
     next();
 }

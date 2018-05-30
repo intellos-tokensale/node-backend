@@ -10,7 +10,11 @@ import price from '../../api/price';
 describe('Price API', () => {
     let req;
     let res;
+    let status;
+    let errorText;
     beforeEach(() => {
+        status = "";
+        errorText = "";
         req = {
             body: {
 
@@ -18,8 +22,15 @@ describe('Price API', () => {
             params: {
                 time: Date.now()
             }
-        }
+        };
         res = {
+            status: (s) => {
+                console.log("*");
+                status = s;
+                return {
+                    send: (x) => { errorText = x; }
+                }
+            },
             json: (x) => {}
         }
     });
@@ -42,10 +53,13 @@ describe('Price API', () => {
         });
 
         describe('no time defined', () => {
-            it('throws an error', () => {
+            it('returns an error', () => {
                 delete req.params.time;
-                expect(() => { price.getByTime(req, res); })
-                    .to.throw('time not defined');
+                console.log(res);
+                price.getByTime(req, res);
+
+                status.should.equals(400);
+                errorText.should.equal('missing parameter: time');
             });
         });
 

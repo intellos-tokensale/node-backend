@@ -1,4 +1,5 @@
 import account from '../lib/account';
+import error from '../middleware/error';
 const ethereum_address = require('ethereum-address');
 const bitcoin_address = require('bitcoin-address');
 
@@ -10,8 +11,8 @@ export default {
 };
 
 function get(req, res) {
-    if (!req.userId) throw new Error('unauthorized');
-    if (!req.userEmail) throw new Error('email on user missing');
+    if (!req.userId) return error.unauthorized(res);
+    if (!req.userEmail) return error.missingParam(res, 'email');
 
     return account.get(req.userId, req.userEmail)
         .then((account) => {
@@ -20,9 +21,9 @@ function get(req, res) {
 }
 
 function saveErc20(req, res) {
-    if (!req.userId) throw new Error('unauthorized');
-    if (!req.body.erc20Address) throw new Error('erc20 address Missing');
-    if (!ethereum_address.isAddress(req.body.erc20Address)) throw new Error('Not a valid erc20 address');
+    if (!req.userId) return error.unauthorized(res);
+    if (!req.body.erc20Address) return error.missingParam(res, 'erc20');
+    if (!ethereum_address.isAddress(req.body.erc20Address)) return error.invalidParam(res, 'erc20 address');
 
     return account.saveErc20(req.userId, req.body.erc20Address)
         .then((account) => {
@@ -31,9 +32,9 @@ function saveErc20(req, res) {
 }
 
 function saveETHRefundAddress(req, res) {
-    if (!req.userId) throw new Error('unauthorized');
-    if (!req.body.ethRefundAddress) throw new Error('eth refund address Missing');
-    if (!ethereum_address.isAddress(req.body.ethRefundAddress)) throw new Error('Not a valid ETH address');
+    if (!req.userId) return error.unauthorized(res);
+    if (!req.body.ethRefundAddress) return error.missingParam(res, 'ETH refund address');
+    if (!ethereum_address.isAddress(req.body.ethRefundAddress)) return error.invalidParam(res, 'ETH address');
 
     return account.saveETHRefundAddress(req.userId, req.body.ethRefundAddress)
         .then((account) => {
@@ -42,9 +43,9 @@ function saveETHRefundAddress(req, res) {
 }
 
 function saveBTCRefundAddress(req, res) {
-    if (!req.userId) throw new Error('unauthorized');
-    if (!req.body.btcRefundAddress) throw new Error('btc refund address address Missing');
-    if (!bitcoin_address.validate(req.body.btcRefundAddress)) throw new Error('Not a valid BTC address');
+    if (!req.userId) return error.unauthorized(res);
+    if (!req.body.btcRefundAddress) return error.missingParam(res, 'BTC refund address');
+    if (!bitcoin_address.validate(req.body.btcRefundAddress)) return error.invalidParam(res, 'BTC address');
 
     return account.saveBTCRefundAddress(req.userId, req.body.btcRefundAddress)
         .then((account) => {

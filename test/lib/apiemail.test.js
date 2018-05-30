@@ -10,7 +10,11 @@ import email from '../../api/email';
 describe('Email API', () => {
     let req;
     let res;
+    let status;
+    let errorText;
     beforeEach(() => {
+        status = "";
+        errorText = "";
         req = {
             body: {
 
@@ -21,6 +25,12 @@ describe('Email API', () => {
             }
         }
         res = {
+            status: (s) => {
+                status = s;
+                return {
+                    send: (x) => { errorText = x; }
+                }
+            },
             json: (x) => {}
         }
     });
@@ -34,18 +44,20 @@ describe('Email API', () => {
         });
 
         describe('no userid', () => {
-            it('throws an error', () => {
+            it('returns an error', () => {
                 delete req.params.userId;
-                expect(() => { email.confirmInvestment(req, res); })
-                    .to.throw('user not defined');
+                email.confirmInvestment(req, res);
+                status.should.equals(400);
+                errorText.should.equal('missing parameter: user');
             });
         });
 
         describe('no hash defined', () => {
-            it('throws an error', () => {
+            it('returns an error', () => {
                 delete req.params.hash;
-                expect(() => { email.confirmInvestment(req, res); })
-                    .to.throw('tranasaction not defined');
+                email.confirmInvestment(req, res);
+                status.should.equals(400);
+                errorText.should.equal('missing parameter: transaction hash');
             });
         });
 

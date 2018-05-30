@@ -6,11 +6,16 @@ const expect = require('chai').expect;
 
 
 import account from '../../api/account';
+import sender from '../../lib/email/sender';
 
 describe('Account API', () => {
     let req;
     let res;
+    let status;
+    let errorText;
     beforeEach(() => {
+        status = "";
+        errorText = "";
         req = {
             userId: 'hello1',
             userEmail: 'hallo@hallo_nomail.com',
@@ -21,6 +26,12 @@ describe('Account API', () => {
             }
         }
         res = {
+            status: (s) => {
+                status = s;
+                return {
+                    send: (x) => { errorText = x; }
+                }
+            },
             json: (x) => {}
         }
     });
@@ -34,18 +45,20 @@ describe('Account API', () => {
         });
 
         describe('no userid', () => {
-            it('throws an error', () => {
+            it('returns an error', () => {
                 delete req.userId;
-                expect(() => { account.get(req, res); })
-                    .to.throw('unauthorized');
+                account.get(req, res);
+                status.should.equals(403);
+                errorText.should.equal('unauthorized');
             });
         });
 
         describe('no email', () => {
-            it('throws an error', () => {
+            it('returns an error', () => {
                 delete req.userEmail;
-                expect(() => { account.get(req, res); })
-                    .to.throw('email on user missing');
+                account.get(req, res);
+                status.should.equals(400);
+                errorText.should.equal('missing parameter: email');
             });
         });
     });
@@ -59,26 +72,32 @@ describe('Account API', () => {
         });
 
         describe('no userid', () => {
-            it('throws an error', () => {
+            it('returns an error', () => {
                 delete req.userId;
-                expect(() => { account.saveErc20(req, res); })
-                    .to.throw('unauthorized');
+                account.saveErc20(req, res);
+                status.should.equals(403);
+                errorText.should.equal('unauthorized');
+
             });
         });
 
         describe('no erc20Address', () => {
-            it('throws an error', () => {
+            it('returns an error', () => {
                 delete req.body.erc20Address;
-                expect(() => { account.saveErc20(req, res); })
-                    .to.throw('erc20 address Missing');
+                account.saveErc20(req, res);
+                status.should.equals(400);
+                errorText.should.equal('missing parameter: erc20');
+
             });
         });
 
         describe('no erc20Address', () => {
-            it('throws an error', () => {
+            it('returns an error', () => {
                 req.body.erc20Address = "asdf";
-                expect(() => { account.saveErc20(req, res); })
-                    .to.throw('Not a valid erc20 address');
+                account.saveErc20(req, res);
+                status.should.equals(400);
+                errorText.should.equal('parameter not valid: erc20 address');
+
             });
         });
     });
@@ -92,26 +111,32 @@ describe('Account API', () => {
         });
 
         describe('no userid', () => {
-            it('throws an error', () => {
+            it('returns an error', () => {
                 delete req.userId;
-                expect(() => { account.saveETHRefundAddress(req, res); })
-                    .to.throw('unauthorized');
+                account.saveETHRefundAddress(req, res);
+                status.should.equals(403);
+                errorText.should.equal('unauthorized');
+
             });
         });
 
         describe('no ethRefundAddress', () => {
-            it('throws an error', () => {
+            it('returns an error', () => {
                 delete req.body.ethRefundAddress;
-                expect(() => { account.saveETHRefundAddress(req, res); })
-                    .to.throw('eth refund address Missing');
+                account.saveETHRefundAddress(req, res);
+                status.should.equals(400);
+                errorText.should.equal('missing parameter: ETH refund address');
+
             });
         });
 
-        describe('no erc20Address', () => {
-            it('throws an error', () => {
+        describe('invalid ethRefundAddress', () => {
+            it('returns an error', () => {
                 req.body.ethRefundAddress = "asdf";
-                expect(() => { account.saveETHRefundAddress(req, res); })
-                    .to.throw('Not a valid ETH address');
+                account.saveETHRefundAddress(req, res);
+                status.should.equals(400);
+                errorText.should.equal('parameter not valid: ETH address');
+
             });
         });
 
@@ -126,26 +151,32 @@ describe('Account API', () => {
         });
 
         describe('no userid', () => {
-            it('throws an error', () => {
+            it('returns an error', () => {
                 delete req.userId;
-                expect(() => { account.saveBTCRefundAddress(req, res); })
-                    .to.throw('unauthorized');
-            });
-        });
+                account.saveBTCRefundAddress(req, res);
+                status.should.equals(403);
+                errorText.should.equal('unauthorized');
 
-        describe('no erc20Address', () => {
-            it('throws an error', () => {
-                delete req.body.btcRefundAddress;
-                expect(() => { account.saveBTCRefundAddress(req, res); })
-                    .to.throw('btc refund address address Missing');
             });
         });
 
         describe('no btcRefundAddress', () => {
-            it('throws an error', () => {
+            it('returns an error', () => {
+                delete req.body.btcRefundAddress;
+                account.saveBTCRefundAddress(req, res);
+                status.should.equals(400);
+                errorText.should.equal('missing parameter: BTC refund address');
+
+            });
+        });
+
+        describe('no btcRefundAddress', () => {
+            it('returns an error', () => {
                 req.body.btcRefundAddress = "asdf";
-                expect(() => { account.saveBTCRefundAddress(req, res); })
-                    .to.throw('Not a valid BTC address');
+                account.saveBTCRefundAddress(req, res);
+                status.should.equals(400);
+                errorText.should.equal('parameter not valid: BTC address');
+
             });
         });
     });

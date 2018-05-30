@@ -1,4 +1,5 @@
 import price from '../lib/price';
+import error from '../middleware/error';
 
 export default {
     getLast,
@@ -14,7 +15,7 @@ function getLast(req, res) {
 
 
 function getByTime(req, res) {
-    if (!req.params.time) throw new Error('time not defined');
+    if (!req.params.time) return error.missingParam(res, 'time');
     return price.getByTime(req.params.time)
         .then((price) => {
             return res.json(price);

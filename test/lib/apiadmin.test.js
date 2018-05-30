@@ -10,7 +10,11 @@ import admin from '../../api/admin';
 describe('Email API', () => {
     let req;
     let res;
+    let status;
+    let errorText;
     beforeEach(() => {
+        status = "";
+        errorText = "";
         req = {
             body: {
 
@@ -20,6 +24,12 @@ describe('Email API', () => {
             }
         }
         res = {
+            status: (s) => {
+                status = s;
+                return {
+                    send: (x) => { errorText = x; }
+                }
+            },
             json: (x) => {}
         }
     });
@@ -32,10 +42,11 @@ describe('Email API', () => {
         });
 
         describe('no time', () => {
-            it('throws an error', () => {
+            it('returns an error', () => {
                 delete req.params.time;
-                expect(() => { admin.fetchTransactions(req, res); })
-                    .to.throw('time missing');
+                admin.fetchTransactions(req, res);
+                status.should.equals(400);
+                errorText.should.equal('missing parameter: time');
             });
         });
 
