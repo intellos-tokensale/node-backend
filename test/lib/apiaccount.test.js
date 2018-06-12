@@ -5,8 +5,8 @@ chai.should();
 const expect = require('chai').expect;
 
 
-import account from '../../api/account';
-import sender from '../../lib/email/sender';
+const account = require('../../api/account');
+const sender = require('../../lib/email/sender');
 
 describe('Account API', () => {
     let req;

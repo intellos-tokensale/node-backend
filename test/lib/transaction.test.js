@@ -4,8 +4,8 @@ chai.should();
 const expect = require('chai').expect;
 
 
-import transaction from '../../lib/transaction';
-import bigMath from '../../lib/util/bigMath';
+const transaction = require('../../lib/transaction');
+const bigMath = require('../../lib/util/bigMath');
 
 describe('Transaction', () => {
 

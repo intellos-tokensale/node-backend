@@ -1,10 +1,10 @@
-import price from '../lib/price';
-import error from '../middleware/error';
-
-export default {
+module.exports = {
     getLast,
     getByTime
 };
+
+const price = require('../lib/price');
+const error = require('../middleware/error');
 
 function getLast(req, res) {
     return price.getLast()

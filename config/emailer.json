@@ -4,23 +4,23 @@
         "user": "hauri32@gmail.com",
         "password": "ygzvgzlnwnchvmos",
         "sendmail": false,
-        "baseUrl": "http://localhost:3000/api/email/",
-        "authToken": "w%4^Zt4K@6*7"
+        "baseurl": "http://localhost:3000/api/email/",
+        "authtoken": "w%4^Zt4K@6*7"
     },
     "test": {
         "from": "hauri32@gmail.com",
         "user": "hauri32@gmail.com",
         "password": "ygzvgzlnwnchvmos",
         "sendmail": false,
-        "baseUrl": "http://localhost:3000/api/email/",
-        "authToken": "w%4^Zt4K@6*7"
+        "baseurl": "http://localhost:3000/api/email/",
+        "authtoken": "w%4^Zt4K@6*7"
     },
     "production": {
         "from": "hauri32@gmail.com",
         "user": "hauri32@gmail.com",
         "password": "ygzvgzlnwnchvmos",
         "sendmail": false,
-        "baseUrl": "http://localhost:3000/api/email/",
-        "authToken": "w%4^Zt4K@6*7"
+        "baseurl": "http://emailservice/api/email/",
+        "authtoken": "w%4^Zt4K@6*7"
     }
 }

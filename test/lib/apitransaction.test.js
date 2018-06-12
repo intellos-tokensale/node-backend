@@ -5,7 +5,7 @@ chai.should();
 const expect = require('chai').expect;
 
 
-import transaction from '../../api/transaction';
+const transaction = require('../../api/transaction');
 
 describe('Transaction API', () => {
     let req;

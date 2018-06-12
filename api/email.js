@@ -1,9 +1,10 @@
-import email from '../lib/email';
-import error from '../middleware/error';
-
-export default {
+module.exports = {
     confirmInvestment,
 };
+const email = require('../lib/email');
+const error = require('../middleware/error');
+
+
 
 function confirmInvestment(req, res) {
     if (!req.params.userId) return error.missingParam(res, 'user');

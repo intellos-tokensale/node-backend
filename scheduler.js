@@ -1,7 +1,7 @@
-import db from './models';
+const db = require('./models');
 
-import schedule from 'node-schedule';
-import price from './lib/price';
+const schedule = require('node-schedule');
+const price = require('./lib/price');
 
 
 price.priceNowByExchange();

@@ -1,12 +1,13 @@
-import price from '../lib/transaction';
-import transaction from '../lib/transaction';
-import account from '../lib/account';
-import error from '../middleware/error';
-
-export default {
+module.exports = {
     get,
     getTokenAmount
 };
+
+const price = require('../lib/transaction');
+const transaction = require('../lib/transaction');
+const account = require('../lib/account');
+const error = require('../middleware/error');
+
 
 function getTokenAmount(req, res) {
     if (!req.userId) return error.unauthorized(res);

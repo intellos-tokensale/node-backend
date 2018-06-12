@@ -5,8 +5,8 @@ chai.should();
 const expect = require('chai').expect;
 
 
-import account from '../../lib/account';
-import models from '../../models';
+const account = require('../../lib/account');
+const models = require('../../models');
 
 describe('Account', () => {
     describe('get', () => {

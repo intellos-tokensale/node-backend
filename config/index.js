@@ -1,23 +1,25 @@
-import bitcoinRpc from './bitcoinRpc.json';
-import database from './database.json';
-import emailer from './emailer.json';
-import general from './general.json';
-import server from './server.json';
+const bitcoinrpc = require('./bitcoinrpc.json');
+const database = require('./database.json');
+const emailer = require('./emailer.json');
+const general = require('./general.json');
+const server = require('./server.json');
 
 
 let config;
 
 const env = process.env.NODE_ENV || 'development';
 
+
+
 config = {
     env: env,
-    bitcoinRpc: bitcoinRpc[env],
+    bitcoinrpc: bitcoinrpc[env],
     database: database[env],
     emailer: emailer[env],
     general: general[env],
     server: server[env]
 }
-
+console.log("helloooo");
 Object.keys(config).forEach(base => {
     Object.keys(config[base]).forEach(v => {
         let env_key = (base + '_' + v).toUpperCase();
@@ -25,4 +27,5 @@ Object.keys(config).forEach(base => {
     });
 });
 if (env === 'development') console.log(config);
-export default config;
+console.log(config);
+module.exports = config;

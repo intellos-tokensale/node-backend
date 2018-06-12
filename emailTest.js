@@ -1,4 +1,4 @@
-import email from './lib/email';
+const email = require('./lib/email');
 
 
 email.sendInvestConfirmation(1188);

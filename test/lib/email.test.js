@@ -5,8 +5,8 @@ chai.should();
 const expect = require('chai').expect;
 
 
-import email from '../../lib/email';
-import sender from '../../lib/email/sender';
+const email = require('../../lib/email');
+const sender = require('../../lib/email/sender');
 
 describe('Email', () => {
 

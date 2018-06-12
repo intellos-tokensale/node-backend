@@ -1,6 +1,6 @@
-import account from './lib/account';
-import crawler from './lib/crawler';
-import schedule from 'node-schedule';
+const account = require('./lib/account');
+const crawler = require('./lib/crawler');
+const schedule = require('node-schedule');
 
 
 

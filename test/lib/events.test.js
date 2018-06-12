@@ -19,7 +19,7 @@ let account = {
     "transactions": []
 };
 
-import events from '../../lib/events/events';
+const events = require('../../lib/events/events');
 
 describe('Events', () => {
 

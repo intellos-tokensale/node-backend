@@ -1,13 +1,13 @@
-import http from 'http';
-import express from 'express';
-import cors from 'cors';
-import morgan from 'morgan';
-import bodyParser from 'body-parser';
-import api from './api';
-import config from './config';
-import db from './models';
-import auth from './middleware/auth';
-import logger from './lib/logger';
+const http = require('http');
+const express = require('express');
+const cors = require('cors');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const api = require('./api');
+const config = require('./config');
+const db = require('./models');
+const auth = require('./middleware/auth');
+const logger = require('./lib/logger');
 
 
 
@@ -35,4 +35,4 @@ app.server.listen(config.server.port, () => {
     logger.info(`Started on port ${app.server.address().port}`);
 });
 
-export default app;
+module.exports = app;

@@ -1,4 +1,4 @@
-export default auth;
+module.exports = auth;
 
 function auth(req, res, next) {
     if (req.headers.authorization) {

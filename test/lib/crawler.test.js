@@ -5,8 +5,8 @@ chai.should();
 const expect = require('chai').expect;
 
 
-import crawler from '../../lib/crawler';
-import account from '../../lib/account';
+const crawler = require('../../lib/crawler');
+const account = require('../../lib/account');
 
 describe('Crawler', () => {
     before(() => {

@@ -1,11 +1,13 @@
-import crawler from '../lib/crawler';
-import account from '../lib/account';
-import error from '../middleware/error';
-
-
-export default {
+module.exports = {
     fetchTransactions
 };
+
+
+const crawler = require('../lib/crawler');
+const account = require('../lib/account');
+const error = require('../middleware/error');
+
+
 
 function fetchTransactions(req, res) {
     if (!req.params.time) return error.missingParam(res, 'time');
@@ -13,6 +15,7 @@ function fetchTransactions(req, res) {
     account.reloadAccounts().then(() => {
             return crawler.crawlBTC(req.params.time);
         })
+        .catch(e => { console.log(error, e); })
         .then(() => {
             return crawler.crawlETH(req.params.time);
         });

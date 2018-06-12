@@ -3,9 +3,17 @@
         "username": "root",
         "password": "123456q.",
         "database": "tokensale",
-        "host": "127.0.0.1",
-        "dialect": "mysql",
-        "logging": false
+        "options": {
+            "host": "127.0.0.1",
+            "dialect": "mysql",
+            "logging": false,
+            "pool": {
+                "max": 30,
+                "min": 5,
+                "acquire": 30000,
+                "idle": 10000
+            }
+        }
     },
     "test": {
         "username": "root",
@@ -13,13 +21,35 @@
         "database": "tokensale",
         "host": "127.0.0.1",
         "dialect": "mysql",
-        "logging": false
+        "logging": false,
+        "options": {
+            "host": "127.0.0.1",
+            "dialect": "mysql",
+            "logging": false,
+            "pool": {
+                "max": 30,
+                "min": 5,
+                "acquire": 30000,
+                "idle": 10000
+            }
+        }
     },
     "production": {
         "username": "root",
         "password": null,
         "database": "tokensale",
         "host": "127.0.0.1",
-        "dialect": "mysql"
+        "dialect": "mysql",
+        "options": {
+            "host": "127.0.0.1",
+            "dialect": "mysql",
+            "logging": false,
+            "pool": {
+                "max": 200,
+                "min": 5,
+                "acquire": 30000,
+                "idle": 10000
+            }
+        }
     }
 }

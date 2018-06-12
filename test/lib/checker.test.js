@@ -1,4 +1,4 @@
-import _m from '../../lib/util/bigMath';
+const _m = require('../../lib/util/bigMath');
 const chai = require('chai');
 
 
@@ -6,7 +6,7 @@ chai.should();
 const expect = require('chai').expect;
 
 
-import checker from '../../lib/util/checker';
+const checker = require('../../lib/util/checker');
 
 describe('Checker', () => {
 

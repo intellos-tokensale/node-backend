@@ -1,17 +1,4 @@
-import { version } from '../package.json';
-import { Router } from 'express';
-import account from './account';
-import transactions from './transaction';
-import prices from './price';
-import email from './email';
-import admin from './admin';
-
-import auth from '../middleware/auth';
-import sysAuth from '../middleware/sysAuth';
-
-
-
-export default () => {
+module.exports = () => {
     let api = Router();
 
     // mount the facets resource
@@ -41,4 +28,16 @@ export default () => {
     }
 
     return api;
-}
+};
+
+
+const version = require('../package.json').version;
+const Router = require('express').Router;
+const account = require('./account');
+const transactions = require('./transaction');
+const prices = require('./price');
+const email = require('./email');
+const admin = require('./admin');
+
+const auth = require('../middleware/auth');
+const sysAuth = require('../middleware/sysAuth');

@@ -5,7 +5,7 @@ chai.should();
 const expect = require('chai').expect;
 
 
-import price from '../../lib/price';
+const price = require('../../lib/price');
 
 describe('Price', () => {
 

@@ -5,7 +5,8 @@ chai.should();
 const expect = require('chai').expect;
 
 
-import price from '../../api/price';
+const price = require('../../api/price');
+console.log('the price api', price);
 
 describe('Price API', () => {
     let req;

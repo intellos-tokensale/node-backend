@@ -1,4 +1,4 @@
-require('babel-register');
+//require('babel-register');
 require('../config/index');
 console.log('starting Possible Modes: API,PRICES,CRAWLER,EMAIL,ADMIN');
 if (process.env.API==='true') {

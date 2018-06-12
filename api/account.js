@@ -1,14 +1,16 @@
-import account from '../lib/account';
-import error from '../middleware/error';
-const ethereum_address = require('ethereum-address');
-const bitcoin_address = require('bitcoin-address');
-
-export default {
+module.exports = {
     get,
     saveErc20,
     saveETHRefundAddress,
     saveBTCRefundAddress
 };
+
+const account = require('../lib/account');
+const error = require('../middleware/error');
+const ethereum_address = require('ethereum-address');
+const bitcoin_address = require('bitcoin-address');
+
+
 
 function get(req, res) {
     if (!req.userId) return error.unauthorized(res);

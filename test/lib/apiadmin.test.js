@@ -5,7 +5,7 @@ chai.should();
 const expect = require('chai').expect;
 
 
-import admin from '../../api/admin';
+const admin = require('../../api/admin');
 
 describe('Email API', () => {
     let req;

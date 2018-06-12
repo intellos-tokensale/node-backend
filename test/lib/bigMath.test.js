@@ -5,7 +5,7 @@ chai.should();
 const expect = require('chai').expect;
 
 
-import bigMath from '../../lib/util/bigMath';
+const bigMath = require('../../lib/util/bigMath');
 
 describe('bigMath', () => {
 
