@@ -3,6 +3,7 @@
         "username": "root",
         "password": "123456q.",
         "database": "tokensale",
+        "dialect": "mysql",
         "options": {
             "host": "127.0.0.1",
             "dialect": "mysql",

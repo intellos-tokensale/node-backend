@@ -3,13 +3,15 @@ const crawler = require('./lib/crawler');
 const schedule = require('node-schedule');
 
 
+//crawler.crawlBTC(Math.floor(Date.now() / 1000) - 7 * 60 * 60);
+//return crawler.crawlETH(Math.floor(Date.now() / 1000) - 8 * 60 * 5);
 
 schedule.scheduleJob('0 */1 * * * *', () => {
     account.reloadAccounts().then(() => {
             return crawler.crawlBTC(Math.floor(Date.now() / 1000) - 4 * 60 * 60);
         })
         .then(() => {
-            return crawler.crawlETH(Math.floor(Date.now() / 1000) - 1 * 60 * 5);
+            return crawler.crawlETH(Math.floor(Date.now() / 1000) - 10 * 60 * 5);
         });
 });
 
