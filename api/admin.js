@@ -18,6 +18,10 @@ function fetchTransactions(req, res) {
         .catch(e => { console.log(error, e); })
         .then(() => {
             return crawler.crawlETH(req.params.time);
+        })
+        .catch(e => { console.log(error, e); })
+        .then(() => {
+            return crawler.crawlWAN(req.params.time);
         });
     return res.json({});
 }

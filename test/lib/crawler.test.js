@@ -39,6 +39,16 @@ describe('Crawler', () => {
 
     });
 
+    describe('crawlWAN', () => {
+
+        it('returns', () => {
+            return crawler.crawlWAN(Math.floor(Date.now() / 1000) - 2 * 60).then(x => {
+                return;
+            });
+        });
+
+    });
+
     describe('crawlUnconfirmedtransactions', () => {
 
         it('returns', () => {

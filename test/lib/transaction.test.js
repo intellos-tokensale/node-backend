@@ -108,6 +108,7 @@ describe('Transaction', () => {
             btcDollarPrice: -1,
             ethDollarPrice: -1,
             dollarPrice: -1,
+            wanDollarPrice: -1,
             discount: '0.00',
             discountUntil: 1526185994000
         };

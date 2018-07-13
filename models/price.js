@@ -7,6 +7,9 @@ module.exports = (sequelize, DataTypes) => {
         ethDollarPrice: {
             type: DataTypes.DECIMAL(40, 20)
         },
+        wanDollarPrice: {
+            type: DataTypes.DECIMAL(40, 20)
+        },
         dollarPrice: {
             type: DataTypes.DECIMAL(40, 20)
         },

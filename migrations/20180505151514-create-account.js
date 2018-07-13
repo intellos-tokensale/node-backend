@@ -49,6 +49,23 @@ module.exports = {
             suspended: {
                 type: DataTypes.BOOLEAN,
             },
+            referalCode: {
+                type: DataTypes.STRING,
+                allowNull: true,
+                unique: true
+            },
+            referedByCode: {
+                type: DataTypes.STRING,
+                allowNull: true
+            },
+            accessToken: {
+                type: DataTypes.STRING,
+                allowNull: true
+            },
+            tokenExpiresIn: {
+                allowNull: false,
+                type: DataTypes.DATE
+            },
             createdAt: {
                 allowNull: false,
                 type: DataTypes.DATE

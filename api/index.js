@@ -8,6 +8,9 @@ module.exports = () => {
         res.json({ version });
     });
 
+    api.post('/accounts/register', account.register);
+    api.post('/accounts/login', account.login);
+    api.get('/accounts/confirmEmail/:code', account.confirmEmail);
     api.get('/accounts/', auth, account.get);
     api.post('/accounts/erc20', auth, account.saveErc20);
     api.post('/accounts/btcRefundAddress', auth, account.saveBTCRefundAddress);
@@ -21,6 +24,7 @@ module.exports = () => {
 
     if (process.env.EMAIL) {
         api.get('/email/confirmInvestment/:userId/:hash', sysAuth, email.confirmInvestment);
+        api.get('/email/confirmEmail/:id', sysAuth, email.confirmEmail);
     }
 
     if (process.env.ADMIN) {

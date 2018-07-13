@@ -19,7 +19,6 @@ config = {
     general: general[env],
     server: server[env]
 }
-console.log("helloooo");
 Object.keys(config).forEach(base => {
     Object.keys(config[base]).forEach(v => {
         let env_key = (base + '_' + v).toUpperCase();
@@ -27,5 +26,4 @@ Object.keys(config).forEach(base => {
     });
 });
 if (env === 'development') console.log(config);
-console.log(config);
 module.exports = config;

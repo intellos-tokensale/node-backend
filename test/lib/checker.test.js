@@ -102,7 +102,9 @@ describe('Checker', () => {
             prices = {
                 btcDollarPrice: 0.3,
                 ethDollarPrice: 0.4,
+                wanDollarPrice: 0.5,
                 dollarPrice: 10,
+
                 discount: '0.00',
                 discountUntil: 1526185994000
             };
@@ -172,10 +174,12 @@ describe('Checker', () => {
             prices = {
                 btcDollarPrice: 1,
                 ethDollarPrice: 1
+                wanDollarPrice: 0.4,
             };
 
             av = {
                 btcDollarPrice: 1.01,
+                wanDollarPrice: 0.4,
                 ethDollarPrice: 1.01
             };
         });
