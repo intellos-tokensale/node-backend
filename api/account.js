@@ -12,14 +12,22 @@ const account = require('../lib/account');
 const error = require('../middleware/error');
 const ethereum_address = require('ethereum-address');
 const bitcoin_address = require('bitcoin-address');
+const requestIp = require('request-ip');
 
 
 function register(req, res) {
-    if (!req.body.email) return error.missingParam(res, 'email');
-    if (!req.body.password) return error.missingParam(res, 'password');
-    const referedByCode = req.query.referedByCode;
+    const data = req.body;
+    console.log(data);
+    if (!data.email) return error.missingParam(res, 'email');
+    if (!data.password) return error.missingParam(res, 'password');
+    if (!data.firstName) return error.missingParam(res, 'firstName');
+    if (!data.lastName) return error.missingParam(res, 'lastName');
+    if (!data.nationality) return error.missingParam(res, 'nationality');
+    if (!data.investmentAmount) return error.missingParam(res, 'investmentAmount');
 
-    return account.register(req.body.email, req.body.password, referedByCode)
+    data.ip = requestIp.getClientIp(req);
+    console.log(data);
+    return account.register(data)
         .then((account) => {
             account = deleteUnwantedFields(account);
             return res.json(account);
@@ -33,9 +41,8 @@ function register(req, res) {
 function login(req, res) {
     if (!req.body.email) return error.missingParam(res, 'email');
     if (!req.body.password) return error.missingParam(res, 'password');
-    const referedByCode = req.query.referedByCode;
 
-    return account.login(req.body.email, req.body.password, referedByCode)
+    return account.login(req.body.email, req.body.password)
         .then((account) => {
             account = deleteUnwantedFields(account);
             return res.json(account);
