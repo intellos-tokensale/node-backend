@@ -1,18 +1,21 @@
 {
     "development": {
         "etherscanKey": "CIVXDMVSH6KIKN3YCWQX6TJMK7U9Y8HDJU",
+        "frontend": "http://localhost:4200/",
         "maxPriceDiffFraction": 0.7,
         "dollarPrice": 10,
         "appName": "tokensale-backend"
     },
     "test": {
         "etherscanKey": "CIVXDMVSH6KIKN3YCWQX6TJMK7U9Y8HDJU",
+        "frontend": "http://localhost:4200/",
         "maxPriceDiffFraction": 0.7,
         "dollarPrice": 10,
         "appName": "tokensale-backend"
     },
     "production": {
         "etherscanKey": "CIVXDMVSH6KIKN3YCWQX6TJMK7U9Y8HDJU",
+        "frontend": "http://localhost:4200/",
         "maxPriceDiffFraction": 0.7,
         "dollarPrice": 10,
         "appName": "tokensale-backend"

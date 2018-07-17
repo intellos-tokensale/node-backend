@@ -3,7 +3,7 @@
         "from": "hauri32@gmail.com",
         "user": "hauri32@gmail.com",
         "password": "ygzvgzlnwnchvmos",
-        "sendmail": false,
+        "sendmail": true,
         "baseurl": "http://localhost:3000/api/email/",
         "authtoken": "w%4^Zt4K@6*7"
     },

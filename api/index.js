@@ -11,6 +11,8 @@ module.exports = () => {
     api.post('/accounts/register', account.register);
     api.post('/accounts/login', account.login);
     api.get('/accounts/confirmEmail/:code', account.confirmEmail);
+    api.post('/accounts/resetpw', account.resetPw);
+    api.post('/accounts/changepw', auth, account.changePw);
     api.get('/accounts/', auth, account.get);
     api.post('/accounts/erc20', auth, account.saveErc20);
     api.post('/accounts/btcRefundAddress', auth, account.saveBTCRefundAddress);
@@ -25,6 +27,8 @@ module.exports = () => {
     if (process.env.EMAIL) {
         api.get('/email/confirmInvestment/:userId/:hash', sysAuth, email.confirmInvestment);
         api.get('/email/confirmEmail/:id', sysAuth, email.confirmEmail);
+        api.get('/email/referalEmail/:id', sysAuth, email.referalEmail);
+        api.get('/email/passwordReset/:id/:pw', sysAuth, email.newPwEmail);
     }
 
     if (process.env.ADMIN) {

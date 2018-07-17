@@ -26,7 +26,6 @@ app.use(bodyParser.json({
     limit: config.server.bodyLimit
 }));
 
-app.use(auth);
 
 // api router
 app.use('/api', api());

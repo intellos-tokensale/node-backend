@@ -5,7 +5,9 @@ module.exports = {
     saveBTCRefundAddress,
     register,
     login,
-    confirmEmail
+    confirmEmail,
+    resetPw,
+    changePw
 };
 
 const account = require('../lib/account');
@@ -17,7 +19,7 @@ const requestIp = require('request-ip');
 
 function register(req, res) {
     const data = req.body;
-    console.log(data);
+    if (!data.title) return error.missingParam(res, 'title');
     if (!data.email) return error.missingParam(res, 'email');
     if (!data.password) return error.missingParam(res, 'password');
     if (!data.firstName) return error.missingParam(res, 'firstName');
@@ -38,6 +40,21 @@ function register(req, res) {
         });
 }
 
+function changePw(req, res) {
+    if (!req.userId) return error.unauthorized(res);
+    const data = req.body;
+    data.id = req.userId;
+    if (!data.password) return error.missingParam(res, 'password');
+    return account.changePW(data)
+        .then(() => {
+            return res.json({ changed: true });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(400).send(err + '');
+        });
+}
+
 function login(req, res) {
     if (!req.body.email) return error.missingParam(res, 'email');
     if (!req.body.password) return error.missingParam(res, 'password');
@@ -46,6 +63,18 @@ function login(req, res) {
         .then((account) => {
             account = deleteUnwantedFields(account);
             return res.json(account);
+        }).catch(err => {
+            console.log('we arror now', err);
+            res.status(400).send(err + '');
+        });
+}
+
+function resetPw(req, res) {
+    if (!req.body.email) return error.missingParam(res, 'email');
+
+    return account.resetPw(req.body.email)
+        .then(() => {
+            return res.json({ reset: true });
         }).catch(err => {
             console.log('we arror now', err);
             res.status(400).send(err + '');
